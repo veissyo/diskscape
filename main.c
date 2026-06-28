@@ -1,9 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-long long int disk_size(const char *path);
+#include "diskscape.h"
 
 int main(int argc, char *argv[]) {
-    long long int size = disk_size(argv[1]);
-    printf("Size: %lld bytes\n", size);
+    Entry entries[256];
+    int count = 0;
+    scan_dir(argv[1], entries, &count);
+    qsort(entries, count, sizeof(Entry), compare);
+    for (int i = 0; i < count; i++) {
+        printf("%s: %lld bytes\n", entries[i].name, entries[i].size);
+    }
     return 0;
 }

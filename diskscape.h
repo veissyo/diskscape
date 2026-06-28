@@ -1,8 +1,13 @@
-//
-// Created by marty on 26.06.2026.
-//
+#ifndef DISKSCAPE_H
+#define DISKSCAPE_H
 
-#ifndef DISKSCAPE_DISKSCAPE_H
-#define DISKSCAPE_DISKSCAPE_H
+typedef struct {
+    char name[1024];
+    long long int size;
+} Entry;
 
-#endif //DISKSCAPE_DISKSCAPE_H
+long long int disk_size(const char *path);
+void scan_dir(const char *path, Entry *entries, int *count);
+int compare(const void *a, const void *b);
+
+#endif
