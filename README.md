@@ -5,7 +5,7 @@ A colorful terminal tool that visualizes disk usage with ASCII bar charts.
 ## Build
 
 ```
-gcc -o diskscape diskscape.c - lm
+gcc -o diskscape diskscape.c main.c - lm
 ```
 
 ## Usage
